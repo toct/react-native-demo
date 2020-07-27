@@ -46,7 +46,7 @@ const FlatListBasics = () => {
         ]}
         renderItem={({item,index})=>{
           return (
-            <TouchableOpacity key={index} onPress={this.clickItem.bind(this,item,index)}>
+            <TouchableOpacity key={index} onPress={item=>alert(item)}>
               <Text style={styles.item}>{item.key}</Text>
             </TouchableOpacity>
           );

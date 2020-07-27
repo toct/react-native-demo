@@ -9,8 +9,10 @@ export default class ButtonTest extends Component {
     render(){
         return(
             <View style={styles.backgroundView}>
-                <Button title='title' 
-                onPress={()=>{ console.log('onpress')}} 
+                <Button ref={(c)=>this._btn=c} title='title' 
+                onPress={()=>{ 
+                    console.log('onpress');
+                }} 
                 color="#841584" 
                 accessibilityLabel="Learn more about this purple button"
 
@@ -19,6 +21,10 @@ export default class ButtonTest extends Component {
         );
     }
 }
+
+
+
+
 
 const styles = StyleSheet.create({
     backgroundView:{
