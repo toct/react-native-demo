@@ -79,7 +79,6 @@ const sectionData = [
       { 'key':'Image', 'value':Image },
       { 'key':'ImageBackground', 'value':ImageBackground },
       { 'key':'InputAccessoryView', 'value':InputAccessoryView },
-      { 'key':'InputAccessoryView', 'value':InputAccessoryView },
       { 'key':'KeyboardAvoidingView', 'value':KeyboardAvoidingView },
       { 'key':'MyMaskedView', 'value':MyMaskedView },
       { 'key':'Modal', 'value':Modal },
