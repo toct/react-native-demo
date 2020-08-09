@@ -2,21 +2,27 @@
 
 import React, { Component } from "react";
 import { Image, Button } from 'react-native';
+
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
 import stackFrist from './GB_TestStack_FirstScene'
 import stackSecond from './GB_TestStack_SecondScene';
-import stackThird from './ThirdScene';
+import stackThird from './GB_TestStack_ThirdScene';
+
+import { GB_Debug } from './common/GB_Common';
 
 export default class StackNavigation extends Component{
+  componentDidMount(){
+    GB_Debug.Show(  this.props.navigation);
+}
     render(){
         return(
             <Stack.Navigator initialRouteName='Home' screenOptions={navigatorOptions}>   
                 <Stack.Screen name="stackFrist" component={stackFrist} options={homeSceneOptions}/>
-                <Stack.Screen name="stackSecond" component={stackSecond} />
-                <Stack.Screen name="stackThird" component={stackThird} />
+                <Stack.Screen name="stackSecond" component={stackSecond} initialParams={{defualtTitle:'title'}}/>
+                <Stack.Screen name="stackThird" component={stackThird}/>
             </Stack.Navigator>
         );
     }
@@ -40,13 +46,14 @@ const navigatorOptions = {
        borderBottomWidth: 0,
        elevation: 0,
     },
+    
     headerRight: ()=>{
       return(
         <Button onPress={() => {
           alert('This is a button!')
         }}
           title="Info"
-          color="#fff"
+          color= 'black'
         />
       );
     },
@@ -56,12 +63,12 @@ const navigatorOptions = {
     }
 }
 
-const homeSceneOptions = {
+const homeSceneOptions = (props) => ({
   title:'initial `Home` -- > HomeScene',
   headerTitle: props => <LogoTitle {...props} />,
   headerRight: ()=>{
     return(
-      <Button onPress={(ev) => {
+      <Button onPress={() => {
         alert('This is a button!');
       }}
         title="Info"
@@ -72,7 +79,7 @@ const homeSceneOptions = {
   headerLeft: ()=>{
       return(
         <Button onPress = {()=>{
-          this.props.navigation.toggleDrawer();
+          props.navigation.toggleDrawer();
       }} 
       title = "Drawer" 
       color = "#fff"/>);
@@ -84,7 +91,7 @@ const homeSceneOptions = {
   headerTitleStyle: {
     fontWeight: 'bold',
   },
-};
+});
 
 
 /**

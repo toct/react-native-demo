@@ -183,33 +183,31 @@ export default class MainSectionList extends PureComponent {
 
 
   shouldComponentUpdate(){
-    console.log('shouldComponentUpdate');
+    console.log('t10-SectionList ---- shouldComponentUpdate() called');
     return true;
   }
   componentWillUpdate(){
-    console.log('componentWillUpdate');
+    console.log('t10-SectionList ---- componentWillUpdate() called');
   }
   componentDidMount(){
+
+
+
     let newArray = JSON.parse(JSON.stringify(sectionData));
       this.setState({
           cellDataArray:newArray
       })
-    console.log('componentDidMount');
+    console.log('t10-SectionList ---- componentDidMount() called');
   }
   componentWillUnmount(){
-    console.log('componentWillUnmount');
+    console.log('t10-SectionList ---- componentWillUnmount() called');
   }
   componentDidCatch(error, errorInfo){
-    console.log('componentDidCatch');
+    console.log('t10-SectionList ---- componentDidCatch(error, errorInfo) called');
     if(error){
       console.log(errorInfo.componentStack);
     }
   }
-
-
-
-
-
 
 
 
@@ -220,7 +218,7 @@ export default class MainSectionList extends PureComponent {
     this.forceUpdate(()=>{console.log('re-render sectionlist callback')});
   }
   _itemPress = (item)=>{
-    alert(item['value']);
+    this.props.navigation.navigate(item['key']);
   }
   _pullDownToRefresh = ()=>{
     return(

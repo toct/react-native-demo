@@ -1,7 +1,7 @@
 "use strick"
 
 import React, { Component } from "react";
-import { Image, Button, Text, Dimensions } from 'react-native';
+import { Image, Button } from 'react-native';
 
 import {   
   createDrawerNavigator,
@@ -31,14 +31,6 @@ function CustomDrawerContent(props) {
     return (
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-        <DrawerItem
-          label="React Native Basics"
-          onPress={() => props.navigation.closeDrawer()}
-        />
-        <DrawerItem
-          label="React Native Components"
-          onPress={() => props.navigation.closeDrawer()}
-        />
         <DrawerItem
           label="Close drawer"
           onPress={() => props.navigation.closeDrawer()}

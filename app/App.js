@@ -9,9 +9,9 @@ import DrawerScene from './GB_DrawerNavigation';
 export default class APP extends Component{
   render(){
     return(
-      <NavigationContainer>
-      <DrawerScene />
-    </NavigationContainer>
+      <NavigationContainer ref = {ref=>this.navigationRef=ref}>
+        <DrawerScene />
+      </NavigationContainer>
     );
   }
 }
